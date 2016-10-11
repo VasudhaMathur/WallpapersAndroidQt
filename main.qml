@@ -13,6 +13,5 @@ ApplicationWindow {
 
     Settings {
         id: settings
-        property string style: "Material"
     }
 }

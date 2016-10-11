@@ -1,7 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QSettings>
 #include <QQuickStyle>
 
 int main(int argc, char *argv[])
@@ -12,12 +11,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    QSettings settings;
-    QString style = QQuickStyle::name();
-    if (!style.isEmpty())
-        settings.setValue("style", style);
-    else
-        QQuickStyle::setStyle(settings.value("style").toString());
+    QQuickStyle::setStyle("Material");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl("qrc:/main.qml"));
