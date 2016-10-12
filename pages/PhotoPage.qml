@@ -48,20 +48,27 @@ Page {
         anchors.fill: parent
     }
 
-    Image {
-        id: photo
-        visible: photo.status == Image.Ready
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.left: parent.left
+    Flickable {
+        anchors.fill: parent
         anchors.margins: 2
-        width: parent.width
-        height: photoDetails.height/(photoDetails.width/width)
-        sourceSize.width: width
-        sourceSize.height: height
-        clip: true
-        source: photoDetails.url_image
-        smooth: true
-        fillMode: Image.PreserveAspectFit
+
+        Column {
+            width: parent.width
+            spacing: 5
+
+            Image {
+                id: photo
+                visible: photo.status == Image.Ready
+                width: parent.width
+                height: photoDetails.height/(photoDetails.width/width)
+                sourceSize.width: width
+                sourceSize.height: height
+                anchors.horizontalCenter: parent.horizontalCenter
+                clip: true
+                source: photoDetails.url_image
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+            }
+        }
     }
 }
