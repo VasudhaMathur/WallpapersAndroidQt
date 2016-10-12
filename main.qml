@@ -4,6 +4,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Qt.labs.settings 1.0
 
+import "components"
 import "js/scripts.js" as Scripts
 
 ApplicationWindow {
@@ -29,6 +30,7 @@ ApplicationWindow {
         anchors.fill: parent
 
         initialItem: Page {
+            id: homePage
 
             header: ToolBar {
                 Material.foreground: "white"
@@ -49,8 +51,55 @@ ApplicationWindow {
                 }
             }
 
+            property int page: 1
+            property bool next_coming: true
+            property bool more_available: true
+            property bool clear_models: false
+
+            function getWallpapersFinished(data)
+            {
+                if (data.success) {
+                    if (data.wallpapers.length == 0) {
+                        more_available = false
+                    } else {
+                        more_available = true
+                    }
+
+                    next_coming = true
+
+                    worker.sendMessage({'feed': 'homePage', 'obj': data.wallpapers, 'model': wallpapersModel, 'clear_model': clear_models})
+
+                    next_coming = false
+                }
+            }
+
+            function getWallpapers(cpage)
+            {
+                clear_models = false
+                if (!cpage || cpage === 1 || cpage === 0) {
+                    wallpapersModel.clear()
+                    page = 1
+                    clear_models = true
+                }
+                Scripts.get_wallpapers(page);
+            }
+
             Component.onCompleted: {
-                Scripts.get_wallpapers(1);
+                getWallpapers()
+            }
+
+            WorkerScript {
+                id: worker
+                source: "js/Worker.js"
+                onMessage: {
+                    console.log(msg)
+                }
+            }
+
+            BusyIndicator {
+                id: busyIndicator
+                visible: wallpapersModel.count == 0
+                anchors.fill: parent
             }
 
             ListModel {
@@ -59,10 +108,17 @@ ApplicationWindow {
 
             GridView {
                 id: wallpapersView
-                width: parent.width
-                height: parent.height
+                visible: wallpapersModel.count > 0
+                anchors.fill: parent
                 cellWidth: isLandscape ? (parent.width/4) : (parent.width/3)
                 cellHeight: cellWidth*3/4
+
+                onMovementEnded: {
+                    if (atYEnd && !homePage.next_coming && homePage.more_available) {
+                        homePage.page = homePage.page + 1
+                        homePage.getWallpapers(homePage.page)
+                    }
+                }
 
                 model: wallpapersModel
                 delegate: Item {
@@ -78,7 +134,7 @@ ApplicationWindow {
                             sourceSize.width: parent.width
                             sourceSize.height: parent.height
                             clip: true
-                            source: image
+                            source: url_thumb
                             fillMode: Image.PreserveAspectCrop
                         }
                     }

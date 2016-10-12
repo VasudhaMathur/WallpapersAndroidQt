@@ -5,24 +5,9 @@ function get_wallpapers(page) {
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-            console.log(xhr.responseText);
-
             var results = JSON.parse(xhr.responseText);
 
-            var j;
-            for (j in results) {
-                if (j == 'wallpapers') {
-                    var ii = 0;
-                    for (var i = 0; i < objLength(results[j]); i++) {
-                        var id = results[j][i]['id'];
-                        var name = results[j][i]['name'];
-                        var image = results[j][i]['url_thumb'];
-                        var big_image = results[j][i]['url_image'];
-                        wallpapersModel.append({"id":id, "name":name, "image":image, "big_image":big_image});
-                        ii++;
-                    }
-                }
-            }
+            homePage.getWallpapersFinished(results);
         }
     }
 

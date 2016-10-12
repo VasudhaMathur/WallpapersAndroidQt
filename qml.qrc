@@ -19,5 +19,7 @@
         <file>images/+material/menu@3x.png</file>
         <file>images/+material/menu@4x.png</file>
         <file>js/scripts.js</file>
+        <file>js/Worker.js</file>
+        <file>components/BusyIndicator.qml</file>
     </qresource>
 </RCC>
