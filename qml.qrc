@@ -33,5 +33,8 @@
         <file>pages/AboutPage.qml</file>
         <file>images/Wallpapers.png</file>
         <file>components/HorizontalDivider.qml</file>
+        <file>pages/CategoriesPage.qml</file>
+        <file>pages/CollectionsPage.qml</file>
+        <file>pages/WallpapersPage.qml</file>
     </qresource>
 </RCC>
