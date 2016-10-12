@@ -21,5 +21,14 @@
         <file>js/scripts.js</file>
         <file>js/Worker.js</file>
         <file>components/BusyIndicator.qml</file>
+        <file>pages/PhotoPage.qml</file>
+        <file>images/arrow-left.png</file>
+        <file>images/arrow-left@2x.png</file>
+        <file>images/arrow-left@3x.png</file>
+        <file>images/arrow-left@4x.png</file>
+        <file>images/+material/arrow-left.png</file>
+        <file>images/+material/arrow-left@2x.png</file>
+        <file>images/+material/arrow-left@3x.png</file>
+        <file>images/+material/arrow-left@4x.png</file>
     </qresource>
 </RCC>

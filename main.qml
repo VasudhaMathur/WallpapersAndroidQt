@@ -39,12 +39,23 @@ ApplicationWindow {
                     spacing: 20
                     anchors.fill: parent
 
+                    ToolButton {
+                        contentItem: Image {
+                            fillMode: Image.Pad
+                            horizontalAlignment: Image.AlignHCenter
+                            verticalAlignment: Image.AlignVCenter
+                            source: "qrc:/images/drawer.png"
+                        }
+                        onClicked: {
+
+                        }
+                    }
+
                     Label {
                         id: titleLabel
                         text: "Wallpapers"
                         font.pixelSize: 20
                         elide: Label.ElideRight
-                        horizontalAlignment: Qt.AlignHCenter
                         verticalAlignment: Qt.AlignVCenter
                         Layout.fillWidth: true
                     }
@@ -128,14 +139,22 @@ ApplicationWindow {
 
                     Column {
                         anchors.fill: parent
+                        anchors.margins: 2
                         Image {
                             width: parent.width
                             height: parent.height
-                            sourceSize.width: parent.width
-                            sourceSize.height: parent.height
+                            sourceSize.width: width
+                            sourceSize.height: height
                             clip: true
                             source: url_thumb
                             fillMode: Image.PreserveAspectCrop
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            stackView.push("qrc:/pages/PhotoPage.qml", {"photoDetails": wallpapersModel.get(index)})
                         }
                     }
                 }
