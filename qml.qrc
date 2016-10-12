@@ -30,5 +30,8 @@
         <file>images/+material/arrow-left@2x.png</file>
         <file>images/+material/arrow-left@3x.png</file>
         <file>images/+material/arrow-left@4x.png</file>
+        <file>pages/AboutPage.qml</file>
+        <file>images/Wallpapers.png</file>
+        <file>components/HorizontalDivider.qml</file>
     </qresource>
 </RCC>

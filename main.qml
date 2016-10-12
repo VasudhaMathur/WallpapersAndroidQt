@@ -21,6 +21,8 @@ ApplicationWindow {
     property string auth_key: "414aeb60c70011bdfae360000d9bc353"
     property string api_url: 'https://wall.alphacoders.com/api2.0/get.php'
 
+    property string current_version: "0.1"
+
     Settings {
         id: settings
     }
@@ -58,6 +60,29 @@ ApplicationWindow {
                         elide: Label.ElideRight
                         verticalAlignment: Qt.AlignVCenter
                         Layout.fillWidth: true
+                    }
+
+                    ToolButton {
+                        contentItem: Image {
+                            fillMode: Image.Pad
+                            horizontalAlignment: Image.AlignHCenter
+                            verticalAlignment: Image.AlignVCenter
+                            source: "qrc:/images/menu.png"
+                        }
+                        onClicked: optionsMenu.open()
+
+                        Menu {
+                            id: optionsMenu
+                            x: parent.width - width
+                            transformOrigin: Menu.TopRight
+
+                            MenuItem {
+                                text: "About"
+                                onTriggered: {
+                                    stackView.push("qrc:/pages/AboutPage.qml")
+                                }
+                            }
+                        }
                     }
                 }
             }
