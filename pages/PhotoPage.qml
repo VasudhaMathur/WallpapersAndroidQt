@@ -65,6 +65,20 @@ Page {
                 smooth: true
                 fillMode: Image.PreserveAspectFit
             }
+
+            Row {
+                visible: photo.status == Image.Ready
+                anchors.horizontalCenter: parent.horizontalCenter
+                spacing: 10
+
+                Button {
+                    text: qsTr("Download")
+                }
+
+                Button {
+                    text: qsTr("Set Wallpaper")
+                }
+            }
         }
     }
 }
