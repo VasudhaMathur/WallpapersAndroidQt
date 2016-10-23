@@ -14,19 +14,15 @@ Page {
         Material.foreground: "white"
 
         RowLayout {
-            spacing: 20
-            anchors.fill: parent
+            spacing: 0
+            anchors {
+                fill: parent
+                rightMargin: 5
+            }
 
-            ToolButton {
-                contentItem: Image {
-                    fillMode: Image.Pad
-                    horizontalAlignment: Image.AlignHCenter
-                    verticalAlignment: Image.AlignVCenter
-                    source: "qrc:/images/arrow-left.png"
-                }
-                onClicked: {
-                    stackView.pop();
-                }
+            TopButton {
+                source: Qt.resolvedUrl("../images/back.svg")
+                onClicked: stackView.pop()
             }
 
             Label {

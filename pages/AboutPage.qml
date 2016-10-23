@@ -15,18 +15,14 @@ Page {
 
         Column {
             RowLayout {
-                spacing: 20
+                spacing: 0
+                anchors {
+                    rightMargin: 5
+                }
 
-                ToolButton {
-                    contentItem: Image {
-                        fillMode: Image.Pad
-                        horizontalAlignment: Image.AlignHCenter
-                        verticalAlignment: Image.AlignVCenter
-                        source: "qrc:/images/arrow-left.png"
-                    }
-                    onClicked: {
-                        stackView.pop();
-                    }
+                TopButton {
+                    source: Qt.resolvedUrl("../images/back.svg")
+                    onClicked: stackView.pop()
                 }
 
                 Label {
@@ -156,14 +152,13 @@ Page {
                        Label {
                            id: sectionLabel
                            text: "Creator"
-                           color: "#000000"
+                           font.weight: Font.DemiBold
+                           font.pixelSize: 12
                            anchors.verticalCenter: parent.verticalCenter
                        }
                    }
 
-                   HorizontalDivider {
-                        width: parent.width
-                   }
+                   HorizontalDivider { }
 
                    ItemDelegate {
                        width: parent.width
@@ -178,7 +173,6 @@ Page {
                                width: parent.width
                                wrapMode: Text.WordWrap
                                text: "Turan Mahmudov"
-                               color: "#000000"
                            }
 
                            Label {
@@ -199,14 +193,13 @@ Page {
                        Label {
                            id: sectionLabel2
                            text: "Developers"
-                           color: "#000000"
+                           font.weight: Font.DemiBold
+                           font.pixelSize: 12
                            anchors.verticalCenter: parent.verticalCenter
                        }
                    }
 
-                   HorizontalDivider {
-                        width: parent.width
-                   }
+                   HorizontalDivider { }
 
                    ItemDelegate {
                        width: parent.width
@@ -221,7 +214,6 @@ Page {
                                width: parent.width
                                wrapMode: Text.WordWrap
                                text: "Turan Mahmudov"
-                               color: "#000000"
                            }
 
                            Label {

@@ -14,19 +14,15 @@ Page {
         Material.foreground: "white"
 
         RowLayout {
-            spacing: 20
-            anchors.fill: parent
+            spacing: 0
+            anchors {
+                fill: parent
+                rightMargin: 5
+            }
 
-            ToolButton {
-                contentItem: Image {
-                    fillMode: Image.Pad
-                    horizontalAlignment: Image.AlignHCenter
-                    verticalAlignment: Image.AlignVCenter
-                    source: "qrc:/images/drawer.png"
-                }
-                onClicked: {
-                    drawer.open()
-                }
+            TopButton {
+                source: Qt.resolvedUrl("../images/drawer.svg")
+                onClicked: drawer.open()
             }
 
             Label {
@@ -38,27 +34,31 @@ Page {
                 Layout.fillWidth: true
             }
 
-            ToolButton {
-                contentItem: Image {
-                    fillMode: Image.Pad
-                    horizontalAlignment: Image.AlignHCenter
-                    verticalAlignment: Image.AlignVCenter
-                    source: "qrc:/images/menu.png"
-                }
-                onClicked: optionsMenu.open()
+            TopButton {
+                source: Qt.resolvedUrl("../images/crop.svg")
+                onClicked: {
 
-                Menu {
-                    id: optionsMenu
-                    x: parent.width - width
-                    transformOrigin: Menu.TopRight
-
-                    MenuItem {
-                        text: "About"
-                        onTriggered: {
-                            stackView.push("qrc:/pages/AboutPage.qml")
-                        }
-                    }
                 }
+                width: 40
+                height: 40
+            }
+
+            TopButton {
+                source: Qt.resolvedUrl("../images/filters.svg")
+                onClicked: {
+
+                }
+                width: 40
+                height: 40
+            }
+
+            TopButton {
+                source: Qt.resolvedUrl("../images/search.svg")
+                onClicked: {
+                    stackView.push("qrc:/pages/SearchPage.qml")
+                }
+                width: 40
+                height: 40
             }
         }
     }

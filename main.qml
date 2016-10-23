@@ -17,11 +17,16 @@ ApplicationWindow {
     // Landscape check
     property bool isLandscape: width > height
 
+    // Dark & Light
+    property bool isDarkTheme: false
+
     // API
     property string auth_key: "414aeb60c70011bdfae360000d9bc353"
     property string api_url: 'https://wall.alphacoders.com/api2.0/get.php'
 
     property string current_version: "0.1"
+
+    Material.theme: isDarkTheme ? Material.Dark : Material.Light
 
     Settings {
         id: settings
@@ -42,34 +47,9 @@ ApplicationWindow {
 
     Drawer {
         id: drawer
-        width: Math.min(window.width, window.height) / 3 * 2
+        width: Math.min(window.width, window.height) / 4 * 3
         height: window.height
 
-        ListView {
-            id: listView
-            currentIndex: -1
-            anchors.fill: parent
-
-            delegate: ItemDelegate {
-                width: parent.width
-                text: model.title
-                highlighted: ListView.isCurrentItem
-                onClicked: {
-                    if (listView.currentIndex != index) {
-                        listView.currentIndex = index
-                        stackView.replace(model.source)
-                    }
-                    drawer.close()
-                }
-            }
-
-            model: ListModel {
-                ListElement { title: "Wallpapers"; source: "qrc:/pages/WallpapersPage.qml" }
-                ListElement { title: "Categories"; source: "qrc:/pages/CategoriesPage.qml" }
-                ListElement { title: "Collections"; source: "qrc:/pages/CollectionsPage.qml" }
-            }
-
-            ScrollIndicator.vertical: ScrollIndicator { }
-        }
+        DrawerContent { }
     }
 }

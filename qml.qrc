@@ -2,39 +2,31 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>images/drawer.png</file>
-        <file>images/drawer@2x.png</file>
-        <file>images/drawer@3x.png</file>
-        <file>images/drawer@4x.png</file>
-        <file>images/menu.png</file>
-        <file>images/menu@2x.png</file>
-        <file>images/menu@3x.png</file>
-        <file>images/menu@4x.png</file>
-        <file>images/+material/drawer.png</file>
-        <file>images/+material/drawer@2x.png</file>
-        <file>images/+material/drawer@3x.png</file>
-        <file>images/+material/drawer@4x.png</file>
-        <file>images/+material/menu.png</file>
-        <file>images/+material/menu@2x.png</file>
-        <file>images/+material/menu@3x.png</file>
-        <file>images/+material/menu@4x.png</file>
         <file>js/scripts.js</file>
         <file>js/Worker.js</file>
         <file>components/BusyIndicator.qml</file>
         <file>pages/PhotoPage.qml</file>
-        <file>images/arrow-left.png</file>
-        <file>images/arrow-left@2x.png</file>
-        <file>images/arrow-left@3x.png</file>
-        <file>images/arrow-left@4x.png</file>
-        <file>images/+material/arrow-left.png</file>
-        <file>images/+material/arrow-left@2x.png</file>
-        <file>images/+material/arrow-left@3x.png</file>
-        <file>images/+material/arrow-left@4x.png</file>
         <file>pages/AboutPage.qml</file>
         <file>images/Wallpapers.png</file>
         <file>components/HorizontalDivider.qml</file>
         <file>pages/CategoriesPage.qml</file>
         <file>pages/CollectionsPage.qml</file>
         <file>pages/WallpapersPage.qml</file>
+        <file>components/TopButton.qml</file>
+        <file>components/TopButtonItem.qml</file>
+        <file>images/ok.svg</file>
+        <file>images/settings.svg</file>
+        <file>images/drawer.svg</file>
+        <file>images/info.svg</file>
+        <file>images/back.svg</file>
+        <file>images/search.svg</file>
+        <file>images/crop.svg</file>
+        <file>images/filters.svg</file>
+        <file>pages/SearchPage.qml</file>
+        <file>images/photo.svg</file>
+        <file>images/header.jpg</file>
+        <file>images/header2.jpg</file>
+        <file>components/NavigationDrawer.qml</file>
+        <file>components/DrawerContent.qml</file>
     </qresource>
 </RCC>
