@@ -28,5 +28,7 @@
         <file>images/header2.jpg</file>
         <file>components/NavigationDrawer.qml</file>
         <file>components/DrawerContent.qml</file>
+        <file>pages/CategoryPage.qml</file>
+        <file>pages/CollectionPage.qml</file>
     </qresource>
 </RCC>

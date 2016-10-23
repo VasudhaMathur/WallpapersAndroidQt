@@ -8,7 +8,7 @@ import "../components"
 import "../js/scripts.js" as Scripts
 
 Page {
-    id: homePage
+    id: collectionPage
 
     header: ToolBar {
         Material.foreground: "white"
@@ -21,47 +21,23 @@ Page {
             }
 
             TopButton {
-                source: Qt.resolvedUrl("../images/drawer.svg")
-                onClicked: drawer.open()
+                source: Qt.resolvedUrl("../images/back.svg")
+                onClicked: stackView.pop()
             }
 
             Label {
                 id: titleLabel
-                text: qsTr("Wallpapers")
+                text: qsTr(collectionName)
                 font.pixelSize: 20
                 elide: Label.ElideRight
                 verticalAlignment: Qt.AlignVCenter
                 Layout.fillWidth: true
             }
-
-            TopButton {
-                source: Qt.resolvedUrl("../images/crop.svg")
-                onClicked: {
-
-                }
-                width: 40
-                height: 40
-            }
-
-            TopButton {
-                source: Qt.resolvedUrl("../images/filters.svg")
-                onClicked: {
-                    filtersPopup.open()
-                }
-                width: 40
-                height: 40
-            }
-
-            TopButton {
-                source: Qt.resolvedUrl("../images/search.svg")
-                onClicked: {
-                    stackView.push("qrc:/pages/SearchPage.qml")
-                }
-                width: 40
-                height: 40
-            }
         }
     }
+
+    property var collectionId
+    property var collectionName
 
     property int page: 1
     property bool next_coming: true
@@ -79,7 +55,7 @@ Page {
 
             next_coming = true
 
-            worker.sendMessage({'feed': 'homePage', 'obj': data.wallpapers, 'model': wallpapersModel, 'clear_model': clear_models})
+            worker.sendMessage({'feed': 'collectionPage', 'obj': data.wallpapers, 'model': wallpapersModel, 'clear_model': clear_models})
 
             next_coming = false
         }
@@ -93,18 +69,11 @@ Page {
             page = 1
             clear_models = true
         }
-        Scripts.get_wallpapers(page, homePage);
+        Scripts.get_wallpapers(page, collectionPage, false, collectionId);
     }
 
     Component.onCompleted: {
         getWallpapers()
-    }
-
-    Connections {
-        target: window
-        onFiltered: {
-            getWallpapers()
-        }
     }
 
     WorkerScript {

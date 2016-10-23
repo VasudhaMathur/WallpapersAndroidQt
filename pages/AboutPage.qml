@@ -27,7 +27,7 @@ Page {
 
                 Label {
                     id: titleLabel
-                    text: "About"
+                    text: qsTr("About")
                     font.pixelSize: 20
                     elide: Label.ElideRight
                     verticalAlignment: Qt.AlignVCenter
@@ -43,10 +43,10 @@ Page {
                 currentIndex: swipeView.currentIndex
 
                 TabButton {
-                    text: "About"
+                    text: qsTr("About")
                 }
                 TabButton {
-                    text: "Credits"
+                    text: qsTr("Credits")
                 }
             }
         }
@@ -109,7 +109,7 @@ Page {
                     }
 
                     Label {
-                        text: "Released under the terms of the GNU GPL v3"
+                        text: qsTr("Released under the terms of the GNU GPL v3")
                         width: parent.width
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter

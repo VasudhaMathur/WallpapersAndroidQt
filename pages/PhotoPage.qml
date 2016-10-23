@@ -27,7 +27,7 @@ Page {
 
             Label {
                 id: titleLabel
-                text: "Photo"
+                text: qsTr("Photo")
                 font.pixelSize: 20
                 elide: Label.ElideRight
                 verticalAlignment: Qt.AlignVCenter
