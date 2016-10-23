@@ -151,7 +151,7 @@ Page {
 
                        Label {
                            id: sectionLabel
-                           text: "Creator"
+                           text: qsTr("Creator")
                            font.weight: Font.DemiBold
                            font.pixelSize: 12
                            anchors.verticalCenter: parent.verticalCenter
@@ -192,7 +192,7 @@ Page {
 
                        Label {
                            id: sectionLabel2
-                           text: "Developers"
+                           text: qsTr("Developers")
                            font.weight: Font.DemiBold
                            font.pixelSize: 12
                            anchors.verticalCenter: parent.verticalCenter
@@ -223,6 +223,35 @@ Page {
                                elide: Text.ElideRight
                                text: "turan.mahmudov@gmail.com"
                                color: "#333333"
+                           }
+                       }
+                   }
+
+                   Item {
+                       width: parent.width
+                       height: sectionLabel2.implicitHeight + 20
+
+                       Label {
+                           id: sectionLabel3
+                           text: qsTr("Logo")
+                           font.weight: Font.DemiBold
+                           font.pixelSize: 12
+                           anchors.verticalCenter: parent.verticalCenter
+                       }
+                   }
+
+                   HorizontalDivider { }
+
+                   ItemDelegate {
+                       width: parent.width
+                       Column {
+                           anchors.verticalCenter: parent.verticalCenter
+                           anchors.right: parent.right
+                           anchors.left: parent.left
+                           Label {
+                               width: parent.width
+                               wrapMode: Text.WordWrap
+                               text: "Mkay Naut"
                            }
                        }
                    }

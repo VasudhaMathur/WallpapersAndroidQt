@@ -35,15 +35,6 @@ Page {
             }
 
             TopButton {
-                source: Qt.resolvedUrl("../images/crop.svg")
-                onClicked: {
-
-                }
-                width: 40
-                height: 40
-            }
-
-            TopButton {
                 source: Qt.resolvedUrl("../images/filters.svg")
                 onClicked: {
                     filtersPopup.open()

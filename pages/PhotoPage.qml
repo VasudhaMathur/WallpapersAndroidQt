@@ -72,6 +72,8 @@ Page {
                 spacing: 10
 
                 Button {
+                    Material.foreground: "#ffffff"
+                    Material.background: "#3f51b5"
                     text: qsTr("Download")
                 }
 
