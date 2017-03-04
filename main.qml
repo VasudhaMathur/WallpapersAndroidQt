@@ -4,6 +4,8 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Qt.labs.settings 1.0
 
+import DownloadManager 1.0
+
 import "components"
 import "js/scripts.js" as Scripts
 
@@ -39,6 +41,10 @@ ApplicationWindow {
     signal filtered(int filterIndex)
 
     Material.theme: isDarkTheme ? Material.Dark : Material.Light
+
+    DownloadManager {
+        id: downloadManager
+    }
 
     Settings {
         id: settings
@@ -170,6 +176,13 @@ ApplicationWindow {
                     Layout.fillWidth: true
                 }
             }
+        }
+    }
+
+    Connections{
+        target: downloadManager
+        onProgressValueChanged: {
+            console.log(downloadManager.progressValue)
         }
     }
 }

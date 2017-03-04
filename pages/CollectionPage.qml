@@ -102,9 +102,9 @@ Page {
         cellHeight: cellWidth*3/4
 
         onMovementEnded: {
-            if (atYEnd && !homePage.next_coming && homePage.more_available) {
-                homePage.page = homePage.page + 1
-                homePage.getWallpapers(homePage.page)
+            if (atYEnd && !collectionPage.next_coming && collectionPage.more_available) {
+                collectionPage.page = collectionPage.page + 1
+                collectionPage.getWallpapers(collectionPage.page)
             }
         }
 

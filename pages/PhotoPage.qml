@@ -38,6 +38,11 @@ Page {
 
     property var photoDetails
 
+    ProgressBar {
+        indeterminate: downloadManager.activeDownloads != 0
+        width: parent.width
+    }
+
     BusyIndicator {
         id: busyIndicator
         visible: photo.status == Image.Loading
@@ -74,7 +79,11 @@ Page {
                 Button {
                     Material.foreground: "#ffffff"
                     Material.background: "#3f51b5"
+                    enabled: downloadManager.activeDownloads == 0
                     text: qsTr("Download")
+                    onClicked: {
+                        downloadManager.downloadUrl(photoDetails.url_image)
+                    }
                 }
 
                 Button {
